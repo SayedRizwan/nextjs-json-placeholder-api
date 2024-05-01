@@ -1,26 +1,23 @@
-import { FC } from 'react';
-import HomeComponent from '@/Components/Home';
-import { fetchGetAllTodos } from '@/Helpers/Todos';
+import { getAllTodos } from "@/api";
+import AddTask from "./Components/AddTask";
+import TodoList from "./Components/TodoList";
 
-type HomePageProps = {
-  todos: TodoModelResponse;
-};
+//const dataFilePath = path.join(process.cwd(), 'json/userData.json');
 
-export const dynamic = 'force-dynamic';
+export default async function Home() {
+  const tasks = await getAllTodos();
 
- const HomePage = async () => {
-  try {
-    const todos = await fetchGetAllTodos();
-
-    return (
-      <>
-        <HomeComponent todos={todos} />
-      </>
-    );
-  } catch (error: any) {
-    throw new Error(error.message);
-  }
+ // console.log(tasks);
   
-};
-
-export default HomePage;
+ return (
+    <main className="max-w-4xl mx-auto mt-4">
+      <div className="text-center my-5 flex flex-col gap-4">
+        <h1 className="text-2xl font-bold">Users List</h1>
+        <AddTask />
+      </div>
+      <div className="text-center">
+        <TodoList tasks={tasks} />
+      </div>
+    </main>
+  );
+}

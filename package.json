@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "todo_nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,23 +7,27 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db": "json-server -p 5007 -w db.json"
+    "json-server": "json-server --watch data/todos.json --port 3000"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.1",
-    "@types/node": "20.2.0",
-    "@types/react": "18.2.6",
-    "@types/react-dom": "18.2.4",
     "axios": "^1.6.8",
-    "eslint": "8.40.0",
-    "eslint-config-next": "13.4.2",
-    "json-server": "^0.17.3",
-    "next": "13.4.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.8.0",
-    "typescript": "5.0.4"
+    "json-server": "^1.0.0-alpha.23",
+    "next": "14.1.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.0.1",
+    "react-router-dom": "^6.23.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/uuid": "^9.0.8",
+    "autoprefixer": "^10.0.1",
+    "daisyui": "^4.6.2",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   }
 }
